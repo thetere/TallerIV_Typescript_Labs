@@ -5,7 +5,15 @@ interface Ciudad {
 }
 // [/no editar]
 
-const montreal = {
+interface Coords {
+    latitud: number;
+    longitud: number;
+}
+
+interface CiudadExtendida extends Ciudad {
+    coords: Coords;
+}
+const montreal: CiudadExtendida = {
     coords: {
         latitud: 42.332,
         longitud: -73.324,
@@ -13,16 +21,16 @@ const montreal = {
 nombre: 'Montreal',
 };
 
-const tampa = {
+const tampa: CiudadExtendida = {
     coords: {
-        latitud: '27.9478',
-        longitud: '-82.4584',
+        latitud: 27.9478,
+        longitud: -82.4584,
     },
     nombre: 'Tampa',
 };
 
-function informacionCiudad(ciudad: Ciudad) {
-    const coords =
+function informacionCiudad(ciudad: CiudadExtendida) {
+    const coords: string =
         `(${ciudad.coords.latitud.toFixed(3)}, ${ciudad.coords.longitud.toFixed(3)})`;
     return `${ciudad.nombre.toUpperCase()} se encuentra en ${coords}.`;
 }
