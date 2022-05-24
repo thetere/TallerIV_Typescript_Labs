@@ -2,9 +2,14 @@
 Ejercicio 2.1
 Dado el siguiente codigo:
 */
+interface CartItem {
+    id: number;
+    titulo: string;
+    idVariante?: number
+}
 
-function agregarAlCarro(item: { id: number, titulo: string, idVariante: number }) {
-console.log('[Ejercicio 2.1]', `Agregando "${item.titulo}" al carro de compras.`);
+function agregarAlCarro(item: CartItem ) {
+    console.log('[Ejercicio 2.1]', `Agregando "${item.titulo}" al carro de compras con id "${item.id}".`);
 }
 
 agregarAlCarro({ id: 1, titulo: 'Zapatos de cuero' });
