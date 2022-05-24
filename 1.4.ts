@@ -25,6 +25,6 @@ const miembros :number [] = [
     elNumeroMasGrande
 ];
 
-miembros[0] = +'12345';
+miembros[0] = +'12345'; //este "+", operador unario, me convierte el string a number me convierte!
 
 console.log('[Ejercicio 1.4]', miembros);
