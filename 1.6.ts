@@ -5,10 +5,10 @@ Dado el siguiente codigo:
 1 Añadir anotaciones de tipo (lo más explı́citas posible)
 2 Solucionar errores (si corresponde)*/
 
-const elementoInventario = ['tuerca', 11];
+const elementoInventario: [string,number] = ['tuerca', 11];
 
 // despues lo desestructuramos
-const [nombre, cantidad] = elementoInventario;
+const [nombre, cantidad]: [string,number] = elementoInventario;
 
 const mensaje = agregarInventario(nombre, cantidad);
 
