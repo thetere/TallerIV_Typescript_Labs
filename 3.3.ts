@@ -18,26 +18,16 @@ function getPointsFor(letter: string): number {
         ['QZ', 10],
     ];
 
-    return lettersAndPoints.reduce((computedScore: number, pointsTuple: [string, number], i=0, arr) => {
-        /*debug*/console.log(`iteracion nro ${i}`);
-        const [letters, score] = pointsTuple;
-        /*debug*/console.log(`recorremos la tupla ${pointsTuple} buscando ${letter}`);
+    return lettersAndPoints.reduce((computedScore: number, pointsTuple: [string, number]) => {        
+        const [letters, score]: [string, number] = pointsTuple;
         if (letters.split('').find((ll) => ll === letter)) {
-            /*debug*/console.log(`${letter} en ${pointsTuple}`);
-            console.log(`el array queda asi spliceado ${arr.splice(0)}`);
-            /* al hacerle splice a "arr", ultimo argumento, el array sobre el que estamos trabajando, 
-            lo estamos modificando y al hacerlo se "corta" el reduce y no itera al pedo, peeero 
-            modificar los parametros de una funcion no son buenas practicas
-            fuente: https://stackoverflow.com/questions/36144406/how-to-early-break-reduce-method  */
             return computedScore += score;
         }        
-        /*debug*/console.log(`${letter} no en ${pointsTuple}`);
-        i++;
         return computedScore;
     }, 0);
 }
 
-console.log('[Ejercicio 3.3]', `abc vale ${computeScore('abc')} puntos.`);
+console.log('[Ejercicio 3.3]', `zoologico vale ${computeScore('zoologico')} puntos.`);
 
 /*
 1 Añadir anotaciones de tipo siempre que sea posible
