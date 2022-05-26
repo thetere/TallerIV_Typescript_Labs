@@ -1,6 +1,6 @@
 const bankAccount = {
     money: 0,
-    deposit(value, message) {
+    deposit(value: number, message?: string): void {
         this.money += value;
         if (message) {
             console.log(message);
