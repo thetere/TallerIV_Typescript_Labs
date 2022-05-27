@@ -11,6 +11,9 @@ interface Swimmer {
 }
 
 // agregar alias de tipo(s) aqui
+type BirdLike = EggLayer & Flyer;
+
+type FishLike = EggLayer & Swimmer;
 
 class Bird implements BirdLike {
     constructor(public species: string) { }
@@ -36,20 +39,22 @@ class Fish implements FishLike {
     }
 }
 
-function getRandomAnimal() {
-    const animals = [
-        new Bird('puffin'),
-        new Bird('kittiwake'),
-        new Fish('sea robin'),
-        new Fish('leafy seadragon'),
+function getRandomAnimal(): Bird | Fish {
+    const animals: (Bird | Fish)[] = [
+        new Bird('frailecillo'),
+        new Bird('gaviota'),
+        new Fish('rubio'),
+        new Fish('dragón de mar foliado'),
     ];
 
     return animals[Math.floor(Math.random() * animals.length)];
 }
 
-function interrogateAnimal(animal = getRandomAnimal()) {
-    animal.swim(10) // se llama solo si es un pez
-    animal.fly(10); // se llama solo si es un pajaro
+function interrogateAnimal(animal: Bird | Fish = getRandomAnimal()): string {
+    if (animal instanceof Fish)
+        animal.swim(10) // se llama solo si es un pez
+    else if (animal instanceof Bird)
+        animal.fly(10); // se llama solo si es un pajaro
 
     return animal.species;
 }
@@ -60,4 +65,4 @@ console.log('[Ejercicio 4.4]',
 /*
 1 Restrinja el tipo de ‘valor‘ a ‘string o number‘
 2 Solucione cualquier error resultante
-*/
+...??????*/
