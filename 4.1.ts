@@ -1,3 +1,5 @@
+// Tengo que comentar esto para poder hacer el 4.4 porque sino toma que declare las mismas clases y tipos en dos archivos del mismo proyecto
+/*
 interface EggLayer {
     layEggs(): void;
 }
@@ -61,7 +63,7 @@ function interrogateAnimal(animal: Bird | Fish = getRandomAnimal()): string {
 
 console.log('[Ejercicio 4.4]',
 `Tenemos un ${interrogateAnimal()} en nuestras manos!`);
-
+*/
 /*
 1 Restrinja el tipo de ‘valor‘ a ‘string o number‘
 2 Solucione cualquier error resultante
